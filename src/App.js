@@ -7,6 +7,9 @@ import Counter from "./components/Counter/Counter";
 import Form from './components/Form/Form'
 import Parent from "./components/StateLifting/parent";
 import List from "./components/List/List";
+import Login from './components/Login/Login'
+import DynamicStyle from './components/DynamicStyle/DynamicStyle'
+import StyeldComponent from "./components/StyledComponent/StyledComponent";
 
 const content = [
   [
@@ -131,6 +134,21 @@ export default function App() {
 
       <div>
         <List/>
+      </div>
+
+      <div style={{ marginTop: '50px'}}>
+        <h2>Conditional render with return</h2>
+        <Login/>
+      </div>
+
+      <div style={{ marginTop: '50px'}}>
+        <h2>Dynamic Style Example</h2>
+        <DynamicStyle />
+      </div>
+
+      <div>
+        <h2>Styled Component Example</h2>
+        <StyeldComponent/>
       </div>
     </div>
   );
