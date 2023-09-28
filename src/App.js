@@ -3,6 +3,8 @@ import './App.css';
 import ReactIcon from './assetes/image/reactIcon.png'
 import ExpenseItem from "./components/Expense/ExpensesItem";
 import CardList from "./components/Card/CardList";
+import Counter from "./components/Counter/Counter";
+import Form from './components/Form/Form'
 
 const content = [
   [
@@ -111,6 +113,14 @@ export default function App() {
       <div style={{ marginTop: '100px' }}>
         <h1>React Leanring Course Key concepts</h1>
         <CardList/>
+      </div>
+
+      <div>
+        <Counter/>
+      </div>
+
+      <div>
+        <Form />
       </div>
     </div>
   );
