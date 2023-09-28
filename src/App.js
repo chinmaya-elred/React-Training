@@ -5,6 +5,8 @@ import ExpenseItem from "./components/Expense/ExpensesItem";
 import CardList from "./components/Card/CardList";
 import Counter from "./components/Counter/Counter";
 import Form from './components/Form/Form'
+import Parent from "./components/StateLifting/parent";
+import List from "./components/List/List";
 
 const content = [
   [
@@ -121,6 +123,14 @@ export default function App() {
 
       <div>
         <Form />
+      </div>
+      <div style={{ marginTop: '50px'}}>
+        <h2>State Lifting Example</h2>
+        <Parent/>
+      </div>
+
+      <div>
+        <List/>
       </div>
     </div>
   );
