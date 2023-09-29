@@ -11,6 +11,7 @@ import Login from './components/Login/Login'
 import DynamicStyle from './components/DynamicStyle/DynamicStyle'
 import StyeldComponent from "./components/StyledComponent/StyledComponent";
 import ErrorMessage from './components/Error/ErrorMessage'
+import Calculator from "./components/Calculator/Calculator";
 
 const content = [
   [
@@ -154,6 +155,10 @@ export default function App() {
 
       <div>
         <ErrorMessage/>
+      </div>
+
+      <div>
+        <Calculator/>
       </div>
     </div>
   );
