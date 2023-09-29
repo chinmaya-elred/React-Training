@@ -12,6 +12,7 @@ import DynamicStyle from './components/DynamicStyle/DynamicStyle'
 import StyeldComponent from "./components/StyledComponent/StyledComponent";
 import ErrorMessage from './components/Error/ErrorMessage'
 import Calculator from "./components/Calculator/Calculator";
+import UserData from "./components/Project2/UserInfo";
 
 const content = [
   [
@@ -159,6 +160,10 @@ export default function App() {
 
       <div>
         <Calculator/>
+      </div>
+
+      <div>
+        <UserData/>
       </div>
     </div>
   );
