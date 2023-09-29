@@ -13,6 +13,10 @@ import StyeldComponent from "./components/StyledComponent/StyledComponent";
 import ErrorMessage from './components/Error/ErrorMessage'
 import Calculator from "./components/Calculator/Calculator";
 import UserData from "./components/Project2/UserInfo";
+import FragmentComponent from "./components/Fragment/Fragment";
+import RefComponent from "./components/RefComponent/RefComponent";
+import UseEffect from './components/UseEffect/UseEffect'
+import UseReducerComponent from './components/UseReducerComponent/UseReducerComponent'
 
 const content = [
   [
@@ -164,6 +168,25 @@ export default function App() {
 
       <div>
         <UserData/>
+      </div>
+
+      <div style={{ display: 'flex', margin: '0 auto', alignItems: 'center', flexDirection: 'column'}}>
+        <h2>Fragment Example</h2>
+        <FragmentComponent/>
+      </div>
+
+      <div>
+        <RefComponent/>
+      </div>
+
+      <div>
+        <h2>UseEffect Example</h2>
+        <UseEffect />
+      </div>
+
+      <div style={{ marginTop:'50px'}}>
+        <h2>UseReducer Example</h2>
+        <UseReducerComponent />
       </div>
     </div>
   );
