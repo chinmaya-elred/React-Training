@@ -10,6 +10,7 @@ import List from "./components/List/List";
 import Login from './components/Login/Login'
 import DynamicStyle from './components/DynamicStyle/DynamicStyle'
 import StyeldComponent from "./components/StyledComponent/StyledComponent";
+import ErrorMessage from './components/Error/ErrorMessage'
 
 const content = [
   [
@@ -149,6 +150,10 @@ export default function App() {
       <div>
         <h2>Styled Component Example</h2>
         <StyeldComponent/>
+      </div>
+
+      <div>
+        <ErrorMessage/>
       </div>
     </div>
   );
