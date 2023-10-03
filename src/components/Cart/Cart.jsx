@@ -1,30 +1,49 @@
+import { useContext } from 'react';
+import CartContext from '../../store/cart-context';
 import Modal from '../../UI/Modal';
 import classes from './Cart.module.css';
+import CartItem from './CartItem'
 
-const Cart = (props) => {
-  const cartItems = (
-    <ul className={classes['cart-items']}>
-      {[{ id: 'c1', name: 'Sushi', amount: 2, price: 12.99 }].map((item) => (
-        <li>{item.name}</li>
-      ))}
-    </ul>
-  );
-
-  return (
-    <Modal onClose={props.onClose}>
-      {cartItems}
-      <div className={classes.total}>
-        <span>Total Amount</span>
-        <span>35.62</span>
-      </div>
-      <div className={classes.actions}>
-        <button className={classes['button--alt']} onClick={props.onClose}>
-          Close
-        </button>
-        <button className={classes.button}>Order</button>
-      </div>
-    </Modal>
-  );
-};
-
-export default Cart;
+const UpdatedCart = (props) => {
+    const cartCtx = useContext(CartContext);
+  
+    const updatedTotalAmount = `$${cartCtx?.totalAmount?.toFixed(2)}`;
+    const areItemsPresent = cartCtx.items.length > 0;
+  
+    const updatedCartItemRemoveHandler = (id) => {};
+  
+    const updatedCartItemAddHandler = (item) => {};
+  
+    const cartItems = (
+      <ul className={classes['cart-items']}>
+        {cartCtx?.items?.map((item) => (
+          <CartItem
+            key={item.id}
+            name={item.name}
+            amount={item.amount}
+            price={item.price}
+            onRemove={updatedCartItemRemoveHandler.bind(null, item.id)}
+            onAdd={updatedCartItemAddHandler.bind(null, item)}
+          />
+        ))}
+      </ul>
+    );
+  
+    return (
+      <Modal onClose={props.onClose}>
+        {cartItems}
+        <div className={classes.total}>
+          <span>Total Amount</span>
+          <span>{updatedTotalAmount}</span>
+        </div>
+        <div className={classes.actions}>
+          <button className={classes['button--alt']} onClick={props.onClose}>
+            Close
+          </button>
+          {areItemsPresent && <button className={classes.button}>Order</button>}
+        </div>
+      </Modal>
+    );
+  };
+  
+  export default UpdatedCart;
