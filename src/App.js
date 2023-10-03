@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import './App.css';
 import ReactIcon from './assetes/image/reactIcon.png'
 import ExpenseItem from "./components/Expense/ExpensesItem";
@@ -17,6 +17,12 @@ import FragmentComponent from "./components/Fragment/Fragment";
 import RefComponent from "./components/RefComponent/RefComponent";
 import UseEffect from './components/UseEffect/UseEffect'
 import UseReducerComponent from './components/UseReducerComponent/UseReducerComponent'
+import ContextAPI from "./components/ContextAPI/ContextAPI";
+import ForwardRef from './components/ForwardRef/Parent';
+import Header from './components/Layout/Header';
+import Meals from "./components/Meals/Meals";
+import Cart from "./components/Cart/Cart";
+import CartProvider from './store/CartProvider'
 
 const content = [
   [
@@ -68,9 +74,19 @@ const expenses = [
 
 export default function App() {
   const [activeContentIndex, setActiveContentIndex] = useState(0);
+  const [cartIsShown, setCartIsShown] = useState(false);
+
+  const showCartHandler = () => {
+    setCartIsShown(true);
+  };
+
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  };
+
 
   return (
-    <div>
+    <CartProvider>
       <header>
         <img src={ReactIcon} alt="React logo" />
         <div>
@@ -116,67 +132,67 @@ export default function App() {
       </div>
 
       <div>
-        <ExpenseItem title={expenses[0].title} date={expenses[0].date} amount={expenses[0].amount}/>
-        <ExpenseItem title={expenses[1].title} date={expenses[1].date} amount={expenses[1].amount}/>
-        <ExpenseItem title={expenses[2].title} date={expenses[2].date} amount={expenses[2].amount}/>
-        <ExpenseItem title={expenses[3].title} date={expenses[3].date} amount={expenses[3].amount}/>
+        <ExpenseItem title={expenses[0].title} date={expenses[0].date} amount={expenses[0].amount} />
+        <ExpenseItem title={expenses[1].title} date={expenses[1].date} amount={expenses[1].amount} />
+        <ExpenseItem title={expenses[2].title} date={expenses[2].date} amount={expenses[2].amount} />
+        <ExpenseItem title={expenses[3].title} date={expenses[3].date} amount={expenses[3].amount} />
       </div>
 
       <div style={{ marginTop: '100px' }}>
         <h1>React Leanring Course Key concepts</h1>
-        <CardList/>
+        <CardList />
       </div>
 
       <div>
-        <Counter/>
+        <Counter />
       </div>
 
       <div>
         <Form />
       </div>
-      <div style={{ marginTop: '50px'}}>
+      <div style={{ marginTop: '50px' }}>
         <h2>State Lifting Example</h2>
-        <Parent/>
+        <Parent />
       </div>
 
       <div>
-        <List/>
+        <List />
       </div>
 
-      <div style={{ marginTop: '50px'}}>
+      <div style={{ marginTop: '50px' }}>
         <h2>Conditional render with return</h2>
-        <Login/>
+        <Login />
       </div>
 
-      <div style={{ marginTop: '50px'}}>
+      <div style={{ marginTop: '50px' }}>
         <h2>Dynamic Style Example</h2>
         <DynamicStyle />
       </div>
 
       <div>
         <h2>Styled Component Example</h2>
-        <StyeldComponent/>
+        <StyeldComponent />
       </div>
 
       <div>
-        <ErrorMessage/>
+        <ErrorMessage />
       </div>
 
       <div>
-        <Calculator/>
+        <Calculator />
       </div>
 
       <div>
-        <UserData/>
+        <UserData />
       </div>
 
-      <div style={{ display: 'flex', margin: '0 auto', alignItems: 'center', flexDirection: 'column'}}>
+      <div style={{ display: 'flex', margin: '0 auto', alignItems: 'center', flexDirection: 'column' }}>
         <h2>Fragment Example</h2>
-        <FragmentComponent/>
+        <FragmentComponent />
       </div>
 
       <div>
-        <RefComponent/>
+        <RefComponent />
       </div>
 
       <div>
@@ -184,10 +200,30 @@ export default function App() {
         <UseEffect />
       </div>
 
-      <div style={{ marginTop:'50px'}}>
+      <div style={{ marginTop: '50px' }}>
         <h2>UseReducer Example</h2>
         <UseReducerComponent />
       </div>
-    </div>
+
+      <div style={{ marginTop: '50px' }}>
+        <ContextAPI />
+      </div>
+
+      <div style={{ marginTop: '50px' }}>
+        <ForwardRef />
+      </div>
+
+      <div>
+
+        <Fragment>
+          {cartIsShown && <Cart onClose={hideCartHandler} />}
+          <Header onShowCart={showCartHandler} />
+          <main>
+            <Meals />
+          </main>
+        </Fragment>
+
+      </div>
+    </CartProvider>
   );
 }
