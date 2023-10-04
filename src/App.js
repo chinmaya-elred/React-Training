@@ -23,6 +23,10 @@ import Header from './components/Layout/Header';
 import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
 import CartProvider from './store/CartProvider'
+import ShowParagraph from './components/Optimization/ShowParagraph'
+import MemoComponent from "./components/Optimization/memo";
+import UseCallbackComponent from "./components/Optimization/useCallback";
+import Batching from "./components/Optimization/Batching";
 
 const content = [
   [
@@ -223,6 +227,19 @@ export default function App() {
           </main>
         </Fragment>
 
+      </div>
+
+      <div>
+        <h1>
+          Optimization Techniques 
+        </h1>
+        <ShowParagraph />
+
+        <MemoComponent/>
+
+        <UseCallbackComponent/>
+
+        <Batching/>
       </div>
     </CartProvider>
   );
