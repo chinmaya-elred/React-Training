@@ -30,6 +30,9 @@ import Batching from "./components/Optimization/Batching";
 import ClassComponent from './components/ClassComponent/classComponent'
 import LifecycleExample from "./components/ClassComponent/LifeCycleMethods";
 import ErrorBoundary from "./components/ClassComponent/ErrorBoundary";
+import HTTPRequest from './components/HTTP/FetchData'
+import PostData from './components/HTTP/PostData'
+import AsyncAwait from './components/HTTP/AsyncAwait'
 
 const content = [
   [
@@ -252,6 +255,14 @@ export default function App() {
         </ErrorBoundary>
         
         <LifecycleExample />
+      </div>
+
+      <div style={{ marginTop: '50px'}}>
+        <HTTPRequest />
+
+        <PostData/>
+
+        <AsyncAwait />
       </div>
     </CartProvider>
   );
