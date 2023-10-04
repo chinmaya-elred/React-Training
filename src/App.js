@@ -27,6 +27,9 @@ import ShowParagraph from './components/Optimization/ShowParagraph'
 import MemoComponent from "./components/Optimization/memo";
 import UseCallbackComponent from "./components/Optimization/useCallback";
 import Batching from "./components/Optimization/Batching";
+import ClassComponent from './components/ClassComponent/classComponent'
+import LifecycleExample from "./components/ClassComponent/LifeCycleMethods";
+import ErrorBoundary from "./components/ClassComponent/ErrorBoundary";
 
 const content = [
   [
@@ -231,15 +234,24 @@ export default function App() {
 
       <div>
         <h1>
-          Optimization Techniques 
+          Optimization Techniques
         </h1>
         <ShowParagraph />
 
-        <MemoComponent/>
+        <MemoComponent />
 
-        <UseCallbackComponent/>
+        <UseCallbackComponent />
 
-        <Batching/>
+        <Batching />
+      </div>
+
+      <div>
+        <h1>Class Component example</h1>
+        <ErrorBoundary>
+          <ClassComponent />
+        </ErrorBoundary>
+        
+        <LifecycleExample />
       </div>
     </CartProvider>
   );
