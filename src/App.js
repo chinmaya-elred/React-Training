@@ -269,12 +269,13 @@ export default function App() {
       </div>
 
       <div style={{ marginTop: '50px'}}>
+        <h1>Custom Hooks Example</h1>
         <CustomHook />
-
         <CustomHookHTTP />
       </div>
 
       <div style={{ marginTop: '50px'}}>
+        <h1>Form Example</h1>
         <FormInput/>
       </div>
     </CartProvider>
