@@ -33,6 +33,8 @@ import ErrorBoundary from "./components/ClassComponent/ErrorBoundary";
 import HTTPRequest from './components/HTTP/FetchData'
 import PostData from './components/HTTP/PostData'
 import AsyncAwait from './components/HTTP/AsyncAwait'
+import CustomHook from './components/CustomHooks/index'
+import CustomHookHTTP from './components/CustomHooks/CustomHookHTTP/index'
 
 const content = [
   [
@@ -263,6 +265,12 @@ export default function App() {
         <PostData/>
 
         <AsyncAwait />
+      </div>
+
+      <div style={{ marginTop: '50px'}}>
+        <CustomHook />
+
+        <CustomHookHTTP />
       </div>
     </CartProvider>
   );
