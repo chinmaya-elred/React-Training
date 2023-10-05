@@ -35,6 +35,7 @@ import PostData from './components/HTTP/PostData'
 import AsyncAwait from './components/HTTP/AsyncAwait'
 import CustomHook from './components/CustomHooks/index'
 import CustomHookHTTP from './components/CustomHooks/CustomHookHTTP/index'
+import FormInput from './components/FormInput/Form'
 
 const content = [
   [
@@ -271,6 +272,10 @@ export default function App() {
         <CustomHook />
 
         <CustomHookHTTP />
+      </div>
+
+      <div style={{ marginTop: '50px'}}>
+        <FormInput/>
       </div>
     </CartProvider>
   );
