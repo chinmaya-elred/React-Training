@@ -1,29 +1,37 @@
-import { uiActions } from "./ui-slice";
 import { cartActions } from "./cart-slice";
+import { uiActions } from "./ui-slice";
+
+const CART_DATA_URL = "https://react-learning-udemy-f1f2f-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json";
+
+const handleFetchErrors = (response) => {
+  if (!response.ok) {
+    throw new Error("Could not fetch data!");
+  }
+  return response.json();
+};
+
+const sendRequest = async (cart) => {
+  const response = await fetch(CART_DATA_URL, {
+    method: "PUT",
+    body: JSON.stringify({
+      items: cart.items,
+      totalQuantity: cart.totalQuantity,
+    }),
+  });
+
+  return handleFetchErrors(response);
+};
 
 export const fetchCartData = () => {
   return async (dispatch) => {
-    const fetchData = async () => {
-      const response = await fetch(
-        "https://react-learning-udemy-f1f2f-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json"
-      );
-
-      if (!response.ok) {
-        throw new Error("Could not fetch cart data!");
-      }
-
-      const data = await response.json();
-
-      return data;
-    };
-
     try {
-      const cartData = await fetchData();
-      console.log(cartData)
+      const response = await fetch(CART_DATA_URL);
+      const data = await handleFetchErrors(response);
+
       dispatch(
         cartActions.replaceCart({
-          items: cartData.items || [],
-          totalQuantity: cartData.totalQuantity,
+          items: data.items || [],
+          totalQuantity: data.totalQuantity,
         })
       );
     } catch (error) {
@@ -40,34 +48,8 @@ export const fetchCartData = () => {
 
 export const sendCartData = (cart) => {
   return async (dispatch) => {
-    dispatch(
-      uiActions.showNotification({
-        status: "pending",
-        title: "Sending...",
-        message: "Sending cart data!",
-      })
-    );
-
-    const sendRequest = async () => {
-      const response = await fetch(
-        "https://react-learning-udemy-f1f2f-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json",
-        {
-          method: "PUT",
-          body: JSON.stringify({
-            items: cart.items,
-            totalQuantity: cart.totalQuantity,
-          }),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Sending cart data failed.");
-      }
-    };
-
     try {
-      await sendRequest();
-
+      await sendRequest(cart);
       dispatch(
         uiActions.showNotification({
           status: "success",

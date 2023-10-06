@@ -10,12 +10,11 @@ import Notification from "./components/UI/Notification";
 
 let isInitial = true;
 
-function App() {
+const MealAPP  = () =>{
   const dispatch = useDispatch();
   const showCart = useSelector((state) => state?.ui?.cartIsVisible);
   const cart = useSelector((state) => state?.cart);
-  const notification = useSelector((state) => state?.ui?.notification);
-  console.log(showCart, cart, notification)
+  const notification = useSelector((state) => state?.ui?.notification)
 
   useEffect(() => {
     dispatch(fetchCartData());
@@ -26,7 +25,6 @@ function App() {
       isInitial = false;
       return;
     }
-
     if (cart?.changed) {
       dispatch(sendCartData(cart));
     }
@@ -48,5 +46,4 @@ function App() {
     </Provider>
   );
 }
-
-export default App;
+export default MealAPP;
