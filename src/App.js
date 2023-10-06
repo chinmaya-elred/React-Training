@@ -42,6 +42,7 @@ import CounterRedux from './components/Redux/counter'
 import ClassCounter from "./components/Redux/classCounter";
 import LoginRedux from "./components/Redux/LoginComponent/Login";
 import ReduxProject from './components/ReduxProject/MealApp/index'
+import RouterComponent from './components/Router/Router'
 
 const content = [
   [
@@ -287,15 +288,21 @@ export default function App() {
         </div>
 
         <h1>Redux Example</h1>
-        <div style={{ height: '700px', flexDirection: 'column', width: '700px', display: 'flex', margin: 'auto', justifyContent: 'center', backgroundColor: 'red', marginTop: '20px', paddingTop: '20px 50px'}}>
-          <CounterRedux/>
-          <ClassCounter/>
+        <div style={{ height: '700px', flexDirection: 'column', width: '700px', display: 'flex', margin: 'auto', justifyContent: 'center', backgroundColor: 'red', marginTop: '20px', paddingTop: '20px 50px' }}>
+          <CounterRedux />
+          <ClassCounter />
 
           <LoginRedux />
         </div>
 
         <div>
+          <h1>Redux Project</h1>
           <ReduxProject />
+        </div>
+
+        <div style={{ margin: '50px auto' }}>
+          <h1>Router Example</h1>
+          <RouterComponent />
         </div>
       </CartProvider>
     </Provider>
