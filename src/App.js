@@ -41,6 +41,7 @@ import store from './components/Redux/store';
 import CounterRedux from './components/Redux/counter'
 import ClassCounter from "./components/Redux/classCounter";
 import LoginRedux from "./components/Redux/LoginComponent/Login";
+import ReduxProject from './components/ReduxProject/MealApp/index'
 
 const content = [
   [
@@ -291,6 +292,10 @@ export default function App() {
           <ClassCounter/>
 
           <LoginRedux />
+        </div>
+
+        <div>
+          <ReduxProject />
         </div>
       </CartProvider>
     </Provider>
