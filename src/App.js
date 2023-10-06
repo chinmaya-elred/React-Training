@@ -1,5 +1,6 @@
 import { useState, Fragment } from "react";
 import './App.css';
+import { Provider } from 'react-redux';
 import ReactIcon from './assetes/image/reactIcon.png'
 import ExpenseItem from "./components/Expense/ExpensesItem";
 import CardList from "./components/Card/CardList";
@@ -36,6 +37,9 @@ import AsyncAwait from './components/HTTP/AsyncAwait'
 import CustomHook from './components/CustomHooks/index'
 import CustomHookHTTP from './components/CustomHooks/CustomHookHTTP/index'
 import FormInput from './components/FormInput/Form'
+import store from './components/Redux/store';
+import CounterRedux from './components/Redux/counter'
+import ClassCounter from "./components/Redux/classCounter";
 
 const content = [
   [
@@ -99,185 +103,193 @@ export default function App() {
 
 
   return (
-    <CartProvider>
-      <header>
-        <img src={ReactIcon} alt="React logo" />
+    <Provider store={store}>
+      <CartProvider>
+        <header>
+          <img src={ReactIcon} alt="React logo" />
+          <div>
+            <h1>React.js</h1>
+            <p>i.e., using the React library for rendering the UI</p>
+          </div>
+        </header>
+
+        <div id="tabs">
+          <menu>
+            <button
+              className={activeContentIndex === 0 ? "active" : ""}
+              onClick={() => setActiveContentIndex(0)}
+            >
+              Why React?
+            </button>
+            <button
+              className={activeContentIndex === 1 ? "active" : ""}
+              onClick={() => setActiveContentIndex(1)}
+            >
+              Core Features
+            </button>
+            <button
+              className={activeContentIndex === 2 ? "active" : ""}
+              onClick={() => setActiveContentIndex(2)}
+            >
+              Related Resources
+            </button>
+            <button
+              className={activeContentIndex === 3 ? "active" : ""}
+              onClick={() => setActiveContentIndex(3)}
+            >
+              React vs JS
+            </button>
+          </menu>
+          <div id="tab-content">
+            <ul>
+              {content[activeContentIndex].map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
         <div>
-          <h1>React.js</h1>
-          <p>i.e., using the React library for rendering the UI</p>
+          <ExpenseItem title={expenses[0].title} date={expenses[0].date} amount={expenses[0].amount} />
+          <ExpenseItem title={expenses[1].title} date={expenses[1].date} amount={expenses[1].amount} />
+          <ExpenseItem title={expenses[2].title} date={expenses[2].date} amount={expenses[2].amount} />
+          <ExpenseItem title={expenses[3].title} date={expenses[3].date} amount={expenses[3].amount} />
         </div>
-      </header>
 
-      <div id="tabs">
-        <menu>
-          <button
-            className={activeContentIndex === 0 ? "active" : ""}
-            onClick={() => setActiveContentIndex(0)}
-          >
-            Why React?
-          </button>
-          <button
-            className={activeContentIndex === 1 ? "active" : ""}
-            onClick={() => setActiveContentIndex(1)}
-          >
-            Core Features
-          </button>
-          <button
-            className={activeContentIndex === 2 ? "active" : ""}
-            onClick={() => setActiveContentIndex(2)}
-          >
-            Related Resources
-          </button>
-          <button
-            className={activeContentIndex === 3 ? "active" : ""}
-            onClick={() => setActiveContentIndex(3)}
-          >
-            React vs JS
-          </button>
-        </menu>
-        <div id="tab-content">
-          <ul>
-            {content[activeContentIndex].map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+        <div style={{ marginTop: '100px' }}>
+          <h1>React Leanring Course Key concepts</h1>
+          <CardList />
         </div>
-      </div>
 
-      <div>
-        <ExpenseItem title={expenses[0].title} date={expenses[0].date} amount={expenses[0].amount} />
-        <ExpenseItem title={expenses[1].title} date={expenses[1].date} amount={expenses[1].amount} />
-        <ExpenseItem title={expenses[2].title} date={expenses[2].date} amount={expenses[2].amount} />
-        <ExpenseItem title={expenses[3].title} date={expenses[3].date} amount={expenses[3].amount} />
-      </div>
+        <div>
+          <Counter />
+        </div>
 
-      <div style={{ marginTop: '100px' }}>
-        <h1>React Leanring Course Key concepts</h1>
-        <CardList />
-      </div>
+        <div>
+          <Form />
+        </div>
+        <div style={{ marginTop: '50px' }}>
+          <h2>State Lifting Example</h2>
+          <Parent />
+        </div>
 
-      <div>
-        <Counter />
-      </div>
+        <div>
+          <List />
+        </div>
 
-      <div>
-        <Form />
-      </div>
-      <div style={{ marginTop: '50px' }}>
-        <h2>State Lifting Example</h2>
-        <Parent />
-      </div>
+        <div style={{ marginTop: '50px' }}>
+          <h2>Conditional render with return</h2>
+          <Login />
+        </div>
 
-      <div>
-        <List />
-      </div>
+        <div style={{ marginTop: '50px' }}>
+          <h2>Dynamic Style Example</h2>
+          <DynamicStyle />
+        </div>
 
-      <div style={{ marginTop: '50px' }}>
-        <h2>Conditional render with return</h2>
-        <Login />
-      </div>
+        <div>
+          <h2>Styled Component Example</h2>
+          <StyeldComponent />
+        </div>
 
-      <div style={{ marginTop: '50px' }}>
-        <h2>Dynamic Style Example</h2>
-        <DynamicStyle />
-      </div>
+        <div>
+          <ErrorMessage />
+        </div>
 
-      <div>
-        <h2>Styled Component Example</h2>
-        <StyeldComponent />
-      </div>
+        <div>
+          <Calculator />
+        </div>
 
-      <div>
-        <ErrorMessage />
-      </div>
+        <div>
+          <UserData />
+        </div>
 
-      <div>
-        <Calculator />
-      </div>
+        <div style={{ display: 'flex', margin: '0 auto', alignItems: 'center', flexDirection: 'column' }}>
+          <h2>Fragment Example</h2>
+          <FragmentComponent />
+        </div>
 
-      <div>
-        <UserData />
-      </div>
+        <div>
+          <RefComponent />
+        </div>
 
-      <div style={{ display: 'flex', margin: '0 auto', alignItems: 'center', flexDirection: 'column' }}>
-        <h2>Fragment Example</h2>
-        <FragmentComponent />
-      </div>
+        <div>
+          <h2>UseEffect Example</h2>
+          <UseEffect />
+        </div>
 
-      <div>
-        <RefComponent />
-      </div>
+        <div style={{ marginTop: '50px' }}>
+          <h2>UseReducer Example</h2>
+          <UseReducerComponent />
+        </div>
 
-      <div>
-        <h2>UseEffect Example</h2>
-        <UseEffect />
-      </div>
+        <div style={{ marginTop: '50px' }}>
+          <ContextAPI />
+        </div>
 
-      <div style={{ marginTop: '50px' }}>
-        <h2>UseReducer Example</h2>
-        <UseReducerComponent />
-      </div>
+        <div style={{ marginTop: '50px' }}>
+          <ForwardRef />
+        </div>
 
-      <div style={{ marginTop: '50px' }}>
-        <ContextAPI />
-      </div>
+        <div>
 
-      <div style={{ marginTop: '50px' }}>
-        <ForwardRef />
-      </div>
+          <Fragment>
+            {cartIsShown && <Cart onClose={hideCartHandler} />}
+            <Header onShowCart={showCartHandler} />
+            <main>
+              <Meals />
+            </main>
+          </Fragment>
 
-      <div>
+        </div>
 
-        <Fragment>
-          {cartIsShown && <Cart onClose={hideCartHandler} />}
-          <Header onShowCart={showCartHandler} />
-          <main>
-            <Meals />
-          </main>
-        </Fragment>
+        <div>
+          <h1>
+            Optimization Techniques
+          </h1>
+          <ShowParagraph />
 
-      </div>
+          <MemoComponent />
 
-      <div>
-        <h1>
-          Optimization Techniques
-        </h1>
-        <ShowParagraph />
+          <UseCallbackComponent />
 
-        <MemoComponent />
+          <Batching />
+        </div>
 
-        <UseCallbackComponent />
+        <div>
+          <h1>Class Component example</h1>
+          <ErrorBoundary>
+            <ClassComponent />
+          </ErrorBoundary>
 
-        <Batching />
-      </div>
+          <LifecycleExample />
+        </div>
 
-      <div>
-        <h1>Class Component example</h1>
-        <ErrorBoundary>
-          <ClassComponent />
-        </ErrorBoundary>
-        
-        <LifecycleExample />
-      </div>
+        <div style={{ marginTop: '50px' }}>
+          <HTTPRequest />
 
-      <div style={{ marginTop: '50px'}}>
-        <HTTPRequest />
+          <PostData />
 
-        <PostData/>
+          <AsyncAwait />
+        </div>
 
-        <AsyncAwait />
-      </div>
+        <div style={{ marginTop: '50px' }}>
+          <h1>Custom Hooks Example</h1>
+          <CustomHook />
+          <CustomHookHTTP />
+        </div>
 
-      <div style={{ marginTop: '50px'}}>
-        <h1>Custom Hooks Example</h1>
-        <CustomHook />
-        <CustomHookHTTP />
-      </div>
+        <div style={{ margin: '50px auto' }}>
+          <h1>Form Example</h1>
+          <FormInput />
+        </div>
 
-      <div style={{ marginTop: '50px'}}>
-        <h1>Form Example</h1>
-        <FormInput/>
-      </div>
-    </CartProvider>
+        <h1>Redux Example</h1>
+        <div style={{ height: '300px', width: '700px', display: 'flex', margin: 'auto', justifyContent: 'center', backgroundColor: 'red', marginTop: '50px', paddingTop: '100px'}}>
+          <CounterRedux/>
+          <ClassCounter/>
+        </div>
+      </CartProvider>
+    </Provider>
   );
 }
