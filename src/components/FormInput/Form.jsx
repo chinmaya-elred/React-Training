@@ -1,31 +1,32 @@
-import React from "react";
-import useForm from "./CustomHookForm";
+import React, { useState } from "react";
 import './Form.css'
 
 const Form = () => {
-  const initialState = {
+  const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
+  });
+
+  const [submittedData, setSubmittedData] = useState([]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const validate = (values) => {
-    const errors = {};
-    if (!values.firstName) {
-      errors.firstName = "First Name is required";
-    }
-    if (!values.lastName) {
-      errors.lastName = "Last Name is required";
-    }
-    if (!values.email) {
-      errors.email = "Email is required";
-    } else if (!/^\S+@\S+\.\S+$/.test(values.email)) {
-      errors.email = "Invalid email address";
-    }
-    return errors;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmittedData([...submittedData, formData]);
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+    });
   };
-
-  const { formData, formErrors, handleChange, handleBlur, handleSubmit, isSubmitting } = useForm(initialState, validate);
 
   return (
     <div className="form-container">
@@ -39,9 +40,7 @@ const Form = () => {
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
-            onBlur={handleBlur}
           />
-          {formErrors.firstName && <div className="error">{formErrors.firstName}</div>}
         </div>
         <div className="form-group">
           <label htmlFor="lastName">Last Name:</label>
@@ -51,9 +50,7 @@ const Form = () => {
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
-            onBlur={handleBlur}
           />
-          {formErrors.lastName && <div className="error">{formErrors.lastName}</div>}
         </div>
         <div className="form-group">
           <label htmlFor="email">Email:</label>
@@ -63,14 +60,24 @@ const Form = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            onBlur={handleBlur}
           />
-          {formErrors.email && <div className="error">{formErrors.email}</div>}
         </div>
-        <button type="submit" disabled={isSubmitting}>
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
+
+      {submittedData.length > 0 && (
+        <div className="submitted-data">
+          <h2>Submitted Data</h2>
+          {submittedData.map((data, index) => (
+            <div key={index} className="card">
+              <h3>Submission {index + 1}</h3>
+              <p>First Name: {data.firstName}</p>
+              <p>Last Name: {data.lastName}</p>
+              <p>Email: {data.email}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

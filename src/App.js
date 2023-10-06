@@ -43,6 +43,8 @@ import ClassCounter from "./components/Redux/classCounter";
 import LoginRedux from "./components/Redux/LoginComponent/Login";
 import ReduxProject from './components/ReduxProject/MealApp/index'
 import RouterComponent from './components/Router/Router'
+import UseFetcherComponent from './components/UseFetcher/index'
+import DeferComponent from './components/DeferComponent/defer'
 
 const content = [
   [
@@ -303,6 +305,16 @@ export default function App() {
         <div style={{ margin: '50px auto' }}>
           <h1>Router Example</h1>
           <RouterComponent />
+        </div>
+
+        <div>
+          <h1>UseFetcher Example</h1>
+          <UseFetcherComponent />
+        </div>
+
+        <div>
+          <h1>Defer Example in react</h1>
+          <DeferComponent />
         </div>
       </CartProvider>
     </Provider>

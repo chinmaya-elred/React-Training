@@ -6,6 +6,8 @@ import About from './About/About'
 import Contact from './Contact/Contact'
 import Team from './Team/Team'
 import LinkComponent from './Links'
+import ProductDetail from './DynamicRoute/index';
+import Form from '../FormInput/Form';
 
 const App = () => {
     return (
@@ -19,6 +21,8 @@ const App = () => {
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route index={true} element={<Home />} />
+                        <Route path="/products/:id" element={<ProductDetail />} />
+                        <Route path="/form" element={<Form />} />
                     </Routes>
                 </div>
             </div>
