@@ -40,6 +40,7 @@ import FormInput from './components/FormInput/Form'
 import store from './components/Redux/store';
 import CounterRedux from './components/Redux/counter'
 import ClassCounter from "./components/Redux/classCounter";
+import LoginRedux from "./components/Redux/LoginComponent/Login";
 
 const content = [
   [
@@ -285,9 +286,11 @@ export default function App() {
         </div>
 
         <h1>Redux Example</h1>
-        <div style={{ height: '300px', width: '700px', display: 'flex', margin: 'auto', justifyContent: 'center', backgroundColor: 'red', marginTop: '50px', paddingTop: '100px'}}>
+        <div style={{ height: '700px', flexDirection: 'column', width: '700px', display: 'flex', margin: 'auto', justifyContent: 'center', backgroundColor: 'red', marginTop: '20px', paddingTop: '20px 50px'}}>
           <CounterRedux/>
           <ClassCounter/>
+
+          <LoginRedux />
         </div>
       </CartProvider>
     </Provider>

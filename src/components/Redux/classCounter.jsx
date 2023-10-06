@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { increment, decrement } from './Action/action';
+import { increment, decrement } from './Slices/CounterSlice';
 
 const ClassCounter = ({ count, increment, decrement }) => {
   return (
-    <div>
-        <h1>Classbased Redux</h1>
+    <div style={{ marginTop: '50px'}}>
+        <h1>Classbased Redux with slices</h1>
       <h1>Count: {count}</h1>
       <button onClick={increment}>Increment</button>
       <button onClick={decrement}>Decrement</button>
@@ -15,7 +15,7 @@ const ClassCounter = ({ count, increment, decrement }) => {
 
 const mapStateToProps = (state) => {
   return {
-    count: state.count
+    count: state.counter.count
   };
 };
 
