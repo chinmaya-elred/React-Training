@@ -45,6 +45,8 @@ import ReduxProject from './components/ReduxProject/MealApp/index'
 import RouterComponent from './components/Router/Router'
 import UseFetcherComponent from './components/UseFetcher/index'
 import DeferComponent from './components/DeferComponent/defer'
+import AuthentictionComponent from './components/Authentication/Login'
+import LazyLoading from "./components/LazyLoading";
 
 const content = [
   [
@@ -315,6 +317,15 @@ export default function App() {
         <div>
           <h1>Defer Example in react</h1>
           <DeferComponent />
+        </div>
+
+        <div>
+          <h1>Authentication Example</h1>
+          <AuthentictionComponent />
+        </div>
+
+        <div>
+          <LazyLoading/>
         </div>
       </CartProvider>
     </Provider>
