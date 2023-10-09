@@ -47,6 +47,7 @@ import UseFetcherComponent from './components/UseFetcher/index'
 import DeferComponent from './components/DeferComponent/defer'
 import AuthentictionComponent from './components/Authentication/Login'
 import LazyLoading from "./components/LazyLoading";
+import QueryComponent from './components/ReactQuery/index'
 
 const content = [
   [
@@ -326,6 +327,12 @@ export default function App() {
 
         <div>
           <LazyLoading/>
+        </div>
+
+        <div style={{ marginTop: '50px'}}>
+
+          <h1>Tantack Query/ react Query Example</h1>
+          <QueryComponent />
         </div>
       </CartProvider>
     </Provider>
