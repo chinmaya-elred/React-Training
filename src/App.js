@@ -48,6 +48,7 @@ import DeferComponent from './components/DeferComponent/defer'
 import AuthentictionComponent from './components/Authentication/Login'
 import LazyLoading from "./components/LazyLoading";
 import QueryComponent from './components/ReactQuery/index'
+import Animation from './components/Animation/index'
 
 const content = [
   [
@@ -113,7 +114,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <CartProvider>
-        <header>
+        <header style={{ marginTop: '700px' }}>
           <img src={ReactIcon} alt="React logo" />
           <div>
             <h1>React.js</h1>
@@ -326,13 +327,17 @@ export default function App() {
         </div>
 
         <div>
-          <LazyLoading/>
+          <LazyLoading />
         </div>
 
-        <div style={{ marginTop: '50px'}}>
+        <div style={{ marginTop: '50px' }}>
 
           <h1>Tantack Query/ react Query Example</h1>
           <QueryComponent />
+        </div>
+
+        <div>
+          <Animation />
         </div>
       </CartProvider>
     </Provider>
