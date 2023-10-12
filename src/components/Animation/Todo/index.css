@@ -1,0 +1,47 @@
+
+  .container{
+    display: flex ;
+    flex-direction: column;
+  }  
+  .task {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+  
+  .task.completed {
+    background-color: #e0e0e0;
+  }
+  
+  .task input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .task button {
+    margin-left: auto;
+  }
+  
+  .task-list {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  form input {
+    padding: 5px;
+    margin-right: 10px;
+  }
+  
+  form button {
+    padding: 5px 10px;
+  }
+  .taskTitle{
+    color: #000;
+    margin-right: 50px;
+  }

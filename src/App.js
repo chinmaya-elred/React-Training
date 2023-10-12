@@ -49,6 +49,8 @@ import AuthentictionComponent from './components/Authentication/Login'
 import LazyLoading from "./components/LazyLoading";
 import QueryComponent from './components/ReactQuery/index'
 import Animation from './components/Animation/index'
+import TodoListAnimation from './components/Animation/Todo/Index'
+import ModalComponent from "./components/Animation/Modal";
 
 const content = [
   [
@@ -338,6 +340,13 @@ export default function App() {
 
         <div>
           <Animation />
+        </div>
+        <div>
+          <TodoListAnimation />
+        </div>
+
+        <div>
+          <ModalComponent/>
         </div>
       </CartProvider>
     </Provider>
