@@ -51,6 +51,7 @@ import QueryComponent from './components/ReactQuery/index'
 import Animation from './components/Animation/index'
 import TodoListAnimation from './components/Animation/Todo/Index'
 import ModalComponent from "./components/Animation/Modal";
+import ListAnimation from "./components/Animation/List/List";
 
 const content = [
   [
@@ -347,6 +348,10 @@ export default function App() {
 
         <div>
           <ModalComponent/>
+        </div>
+
+        <div>
+          <ListAnimation />
         </div>
       </CartProvider>
     </Provider>
