@@ -52,6 +52,7 @@ import Animation from './components/Animation/index'
 import TodoListAnimation from './components/Animation/Todo/Index'
 import ModalComponent from "./components/Animation/Modal";
 import ListAnimation from "./components/Animation/List/List";
+import ReplaceReduxWithHook from './components/ReplaceReduxWithHook/index'
 
 const content = [
   [
@@ -352,6 +353,10 @@ export default function App() {
 
         <div>
           <ListAnimation />
+        </div>
+
+        <div>
+          <ReplaceReduxWithHook />
         </div>
       </CartProvider>
     </Provider>
