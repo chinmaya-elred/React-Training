@@ -54,6 +54,7 @@ import ModalComponent from "./components/Animation/Modal";
 import ListAnimation from "./components/Animation/List/List";
 import ReplaceReduxWithHook from './components/ReplaceReduxWithHook/index'
 import TestingReact from './components/TestingReact/Counter'
+import AsyncComponent from './components/TestingReact/AsyncCall/api'
 
 const content = [
   [
@@ -363,6 +364,7 @@ export default function App() {
         
         <div>
           <TestingReact />
+          {/* <AsyncComponent /> */}
         </div>
       </CartProvider>
     </Provider>
