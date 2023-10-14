@@ -55,6 +55,8 @@ import ListAnimation from "./components/Animation/List/List";
 import ReplaceReduxWithHook from './components/ReplaceReduxWithHook/index'
 import TestingReact from './components/TestingReact/Counter'
 import AsyncComponent from './components/TestingReact/AsyncCall/api'
+import TodoTypescript from './components/Typescript/Todo/index'
+import FormTypescript from './components/Typescript/Form/Form'
 
 const content = [
   [
@@ -350,7 +352,7 @@ export default function App() {
         </div>
 
         <div>
-          <ModalComponent/>
+          <ModalComponent />
         </div>
 
         <div>
@@ -361,11 +363,21 @@ export default function App() {
           <ReplaceReduxWithHook />
         </div>
 
-        
+
+        <h1>Testing library Example with React JS</h1>
         <div>
           <TestingReact />
           {/* <AsyncComponent /> */}
         </div>
+
+
+
+        <h1>Typescript Example with React JS</h1>
+        <div>
+          <TodoTypescript />
+        </div>
+
+        <div><FormTypescript /></div>
       </CartProvider>
     </Provider>
   );
