@@ -57,6 +57,8 @@ import TestingReact from './components/TestingReact/Counter'
 import AsyncComponent from './components/TestingReact/AsyncCall/api'
 import TodoTypescript from './components/Typescript/Todo/index'
 import FormTypescript from './components/Typescript/Form/Form'
+import StateComponentHook from './components/Hooks/UseState/UseState'
+import HTTPRequestHOOK from './components/Hooks/Http/index'
 
 const content = [
   [
@@ -378,6 +380,15 @@ export default function App() {
         </div>
 
         <div><FormTypescript /></div>
+
+        <h1>Hook Section with all Hook example</h1>
+        <div>
+          <StateComponentHook />
+        </div>
+
+        <div>
+          <HTTPRequestHOOK/>
+        </div>
       </CartProvider>
     </Provider>
   );
