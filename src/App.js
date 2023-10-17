@@ -59,6 +59,10 @@ import TodoTypescript from './components/Typescript/Todo/index'
 import FormTypescript from './components/Typescript/Form/Form'
 import StateComponentHook from './components/Hooks/UseState/UseState'
 import HTTPRequestHOOK from './components/Hooks/Http/index'
+import Memo from './components/Hooks/Memo/memo'
+import RefHook from './components/Hooks/Ref/ref'
+import ReducerExample from "./components/Hooks/UseReducer/reducer";
+import ContextAPIHOOK from './components/Hooks/UseContext/index'
 
 const content = [
   [
@@ -388,6 +392,21 @@ export default function App() {
 
         <div>
           <HTTPRequestHOOK/>
+        </div>
+        <div>
+          <Memo/>
+        </div>
+
+        <div>
+          <RefHook/>
+        </div>
+
+        <div>
+          <ReducerExample />
+        </div>
+
+        <div>
+          <ContextAPIHOOK />
         </div>
       </CartProvider>
     </Provider>
