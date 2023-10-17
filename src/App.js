@@ -63,6 +63,7 @@ import Memo from './components/Hooks/Memo/memo'
 import RefHook from './components/Hooks/Ref/ref'
 import ReducerExample from "./components/Hooks/UseReducer/reducer";
 import ContextAPIHOOK from './components/Hooks/UseContext/index'
+import ReactFullOverView from './components/ReactOverView/OverView/index'
 
 const content = [
   [
@@ -407,6 +408,10 @@ export default function App() {
 
         <div>
           <ContextAPIHOOK />
+        </div>
+
+        <div>
+          <ReactFullOverView/>
         </div>
       </CartProvider>
     </Provider>
